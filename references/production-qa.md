@@ -134,6 +134,7 @@ Do not deliver as finished until these checks pass:
 - At least 80% of the stickers feel immediately sendable to a normal chat user; weak filler items are redesigned.
 - Transparent previews have no unwanted square backgrounds, holes, halos, or clipped props.
 - WeChat-ready packs include main 240 images, cover, chat icon, detail banner, contact sheets, manifest, and README.
+- Other platform-ready packs must include the current required sizes, formats, contact sheets, manifest/README, and visual QA for that platform.
 - Contact sheets and individual final files have been opened or rendered for visual inspection.
 
 If a result is useful but not final, label it as a draft, rejected sample, or review artifact.

@@ -4,7 +4,7 @@ Use the current AI Agent's built-in or configured image-generation model wheneve
 
 - In Codex, use Codex's available image-generation tool.
 - In Claude, use Claude's available built-in image-generation tool if that environment exposes one.
-- In Qoder or another Agent, use that Agent's configured image-generation tool.
+- In Antigravity, Qoder, or another Agent, use that Agent's configured image-generation tool.
 - If the current Agent cannot render images, produce a generator-ready prompt pack instead of claiming finished files.
 
 Do not hard-code one provider as the required route. The required behavior is the workflow, not a specific model brand.
@@ -18,7 +18,7 @@ generation_route:
 native_image_model:
 reference_input_status:
 image_files_exist:
-usable_for_wechat_ready_export:
+usable_for_platform_export:
 notes:
 ```
 
@@ -27,7 +27,7 @@ Routes:
 1. `agent_native_with_reference_input`: the current Agent's image model supports actual image/reference inputs. Best route for final artwork.
 2. `agent_native_prompt_only`: the current Agent's image model accepts only text prompts. Usable for samples and possible finals after strict visual QA, but do not claim reference-image compliance.
 3. `external_generator_prompt_pack`: the current Agent cannot render images, so it produces exact prompts for a separate image model.
-4. `postproduction_only`: images already exist; current Agent handles split, resize, cutout, contact sheets, and WeChat packaging.
+4. `postproduction_only`: images already exist; current Agent handles split, resize, cutout, contact sheets, and platform packaging.
 
 ## Agent-Native Reference-Input Route
 
@@ -80,9 +80,9 @@ Expected output:
 - One full contact-sheet prompt.
 - Optional per-sticker prompts for all 16 items.
 - Negative prompt / rejection list.
-- WeChat folder and manifest plan.
+- Platform folder and manifest plan.
 
-Do not claim finished sticker files, transparent PNGs, or WeChat-ready assets until actual image files exist. Say clearly that the result is a generator-ready prompt pack.
+Do not claim finished sticker files, transparent PNGs, or platform-ready assets until actual image files exist. Say clearly that the result is a generator-ready prompt pack.
 
 This route should still be useful: another user or tool can paste the prompts into any capable image model, then return the images for post-production.
 
@@ -123,4 +123,4 @@ Add these to all generation prompts:
 - No repeated same pose with only caption changes.
 - No malformed Chinese text; if text is unreliable, keep text minimal and make the action clear.
 - No cluttered backgrounds, tiny subject, clipped props, broken limbs, or inconsistent subject identity.
-- No claiming WeChat-ready status before exported files and QA exist.
+- No claiming platform-ready status before exported files and QA exist.

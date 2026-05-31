@@ -4,7 +4,15 @@ Use this file after the subject and style are known. The theme controls what the
 
 ## Theme Selection Menu
 
-Ask this exact short question when the user has not specified a theme or detailed prompt:
+Ask a short menu question when the user has not specified a theme or detailed prompt. Match the user's language.
+
+English:
+
+```text
+Choose a theme: 1 Everyday reactions  2 Work and procrastination  3 Playful sarcasm  4 Cute and affectionate  5 Food, drinks, and fun  6 Greetings and holidays  7 Custom detailed prompt. Default recommendation: 1.
+```
+
+Chinese:
 
 ```text
 选一套主题：1 日常高频  2 打工摸鱼  3 阴阳怪气  4 可爱贴贴  5 吃喝玩乐  6 节日祝福  7 自定义详细提示。默认推荐 1。
@@ -12,7 +20,7 @@ Ask this exact short question when the user has not specified a theme or detaile
 
 Rules:
 
-- If the user says `默认`, `随便`, `日常`, `通用`, or does not care, use preset 1.
+- If the user says `default`, `anything`, `everyday`, `general`, `daily`, `默认`, `随便`, `日常`, `通用`, or does not care, use preset 1.
 - If the user picks 7, ask for one short theme brief or a list of desired captions/scenarios.
 - If the user already gave detailed instructions, skip the menu and treat those instructions as preset 7.
 - Detailed prompt overrides default theme captions, props, mood, and scenario choices.
@@ -22,6 +30,14 @@ Rules:
 ## Preset 1: 日常高频
 
 Use for the broadest chat utility.
+
+English starter captions:
+
+```text
+Got it, Thanks, Yay, You can do it, Nope, Guess, Speechless, Watching, Slacking, I give up, Cracked, Sleepy, Hug, Go, Haha, Good night
+```
+
+Chinese starter captions:
 
 ```text
 收到, 谢谢, 好耶, 加油, 不行, 你猜, 无语, 吃瓜, 摸鱼, 开摆, 裂开, 困了, 抱抱, 冲, 哈哈, 晚安
@@ -33,6 +49,14 @@ Mood: useful, friendly, sendable every day. Props should be simple and universal
 
 Use for office, study, deadline, and work-chat humor.
 
+English starter captions:
+
+```text
+Got it, Busy, Soon, Overtime, Slacking, Meeting, Do not rush me, Scope changed, Meltdown, Help, Off work, Boss is here, Later, Keep going, Read and confused, Monday mood
+```
+
+Chinese starter captions:
+
 ```text
 收到, 在忙, 马上, 加班中, 摸鱼, 开会了, 别催, 需求变了, 崩溃, 救命, 下班, 老板来了, 先鸽了, 继续冲, 已读乱回, 周一不想动
 ```
@@ -42,6 +66,14 @@ Mood: tired, funny, social, not too negative. Use keyboards, coffee, documents, 
 ## Preset 3: 阴阳怪气
 
 Use for playful sarcasm and teasing. Keep it funny, not abusive.
+
+English starter captions:
+
+```text
+Guess, Sure sure, Nope, Not my problem, You are right, Amazing, LOL, I doubt it, Really, Interesting, Enjoy, Got it, Seen, Back off, Watching, Do not pretend
+```
+
+Chinese starter captions:
 
 ```text
 你猜, 啊对对对, 就不, 关我啥事, 你说得对, 好棒棒, 笑死, 我不信, 真的假的, 还有这事, 你开心就好, 懂了, 已阅, 退退退, 看戏, 别装
@@ -53,6 +85,14 @@ Mood: bratty, sarcastic, playful. Use side-eye, hiding, tiny signs, tea/snack pr
 
 Use for warm, cute, affectionate, comfort-oriented packs.
 
+English starter captions:
+
+```text
+Hug, Miss you, Like you, Thanks, You worked hard, Pat pat, Do not cry, With you, Good night, Morning, Happy, Flowers for you, Heart eyes, Charging, Lie down together, Soft hug
+```
+
+Chinese starter captions:
+
 ```text
 贴贴, 抱抱, 想你, 喜欢, 谢谢你, 辛苦啦, 摸摸头, 不哭, 陪你, 晚安, 早安, 开心, 给你花花, 心动, 充电中, 一起躺
 ```
@@ -62,6 +102,14 @@ Mood: soft, safe, affectionate. Use hearts, blankets, flowers, tiny gifts, pillo
 ## Preset 5: 吃喝玩乐
 
 Use for food, drink, weekends, social life, and casual fun.
+
+English starter captions:
+
+```text
+Let us eat, Cheers, Smells good, Hungry, Watching drama, Bubble tea, Need fuel, Going out, Lying flat, Cola time, One more sip, Buy it, In line, Photo time, Party time, Diet tomorrow
+```
+
+Chinese starter captions:
 
 ```text
 开吃, 干杯, 好香, 饿了, 吃瓜, 点奶茶, 续命, 出门玩, 躺平, 快乐水, 再来一口, 买它, 排队中, 拍照, 嗨起来, 明天减肥
@@ -73,6 +121,14 @@ Mood: lively and sensory. Use steam, fizz, cups, plates, snacks, tickets, camera
 
 Use for greetings, blessings, and seasonal packs. Adapt props to the current or requested holiday.
 
+English starter captions:
+
+```text
+Good morning, Good night, Happy New Year, Congrats, Good luck, Peace and joy, Happy birthday, Thank you, Miss you, Lucky day, All the best, Full energy, Gift time, Cheers, Reunion, Better tomorrow
+```
+
+Chinese starter captions:
+
 ```text
 早安, 晚安, 新年好, 恭喜发财, 大吉大利, 平安喜乐, 生日快乐, 谢谢, 想你, 祝你好运, 万事顺意, 元气满满, 收红包, 干杯, 团圆啦, 明天更好
 ```
@@ -82,6 +138,14 @@ Mood: positive, warm, usable for family/friends/groups. Use flowers, lanterns, r
 ## Preset 7: 自定义详细提示
 
 Use when the user gives specific content such as:
+
+English:
+
+```text
+Make a cat sticker pack about staying up late gaming. The mood is "bad at the game but still confident". Captions should include: I can win, wait, one more round, where is my team, so sleepy, I am broken.
+```
+
+Chinese:
 
 ```text
 做一套猫猫熬夜打游戏的表情包，主题是菜但嘴硬，文案要有：我能赢、别急、再来一把、队友呢、困死了、已破防。

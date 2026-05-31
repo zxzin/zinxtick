@@ -1,45 +1,54 @@
 ---
 name: zinxtick
-description: Beginner-friendly generic sticker and meme-pack production workflow. Use when turning a user-provided character, animal, mascot, product, food, drink, can, object, logo-like subject, or original visual concept into a cohesive WeChat-ready static or animated sticker/expression pack, including built-in style preset selection, theme preset selection or custom prompt handling, item planning, image-generation prompting, contact sheets, transparent cutouts, WeChat export assets, and visual QA.
+description: Beginner-friendly generic sticker and meme-pack production workflow for AI agents. Use when turning a user-provided character, animal, mascot, product, food, drink, can, object, logo-like subject, or original visual concept into a cohesive platform-ready static or animated sticker/expression pack, including built-in style preset selection, theme preset selection or custom prompt handling, item planning, image-generation prompting, contact sheets, transparent cutouts, platform export assets, and visual QA.
 ---
 
 # Zinxtick
 
 Use this skill to make sticker packs from an arbitrary subject, not only from a fixed mascot. The subject may be an animal, personified object, product container, food, drink, brand mascot, original character, or user-provided reference image.
 
-The goal is a complete submit-ready sticker asset set: each sticker must work as a distinct chat reaction, preserve the subject's identity, follow the chosen style and theme, and survive WeChat/platform thumbnail review.
+The goal is a complete submit-ready sticker asset set: each sticker must work as a distinct chat reaction, preserve the subject's identity, follow the chosen style and theme, and survive platform thumbnail review.
 
 ## Simple Operator Flow
 
 For ordinary users, run this flow without asking them to solve art direction from scratch:
 
 1. Read the user's subject in one sentence: "make stickers for a hamster", "make cola-can memes", "make a tiger expression pack".
-2. If the user did not specify style, ask one short preset question: "选风格：1大众通用美术 2漫画风格 3经典贴纸风格 4强烈平面设计风格 5古早QQ聊天风格 6自定义；不选默认1。"
-3. If the user did not specify a theme or detailed prompt, ask one short theme question: "选主题：1日常高频 2打工摸鱼 3阴阳怪气 4可爱贴贴 5吃喝玩乐 6节日祝福 7自定义详细提示；不选默认1。"
+2. If the user did not specify style, ask one short preset question in the user's language. Use the English or Chinese menu from `references/style-presets.md`.
+3. If the user did not specify a theme or detailed prompt, ask one short theme question in the user's language. Use the English or Chinese menu from `references/theme-presets.md`.
 4. Build a subject identity lock: what must stay recognizable in every sticker.
-5. Pick the default count: 16 stickers for a full WeChat-ready static pack, or 9 only when the user asks for a compact preview.
+5. Pick the default count: 16 stickers for a full static pack, or 9 only when the user asks for a compact preview.
 6. Write the per-item action plan from the selected theme or custom prompt. Do not generate from captions alone.
 7. Choose the available generation route. Prefer the current AI Agent's built-in or configured image-generation model; use reference-image inputs when that model supports them. If the current environment has no image generator, create a generator-ready prompt pack and do not claim images were produced. See `references/generation-routes.md`.
 8. Produce a small style/theme sample pass first when the subject, style, or custom prompt is new, unfamiliar, branded, or high-risk. Use 4 representative stickers.
 9. Reject weak samples instead of continuing. Fix identity, style, theme, and action variety first.
 10. Generate the full set only after the direction is strong enough.
 11. Review the contact sheet at thumbnail size. Regenerate repetitive, ugly, off-subject, off-theme, or unreadable stickers.
-12. Export WeChat-ready masters, transparent cutouts, contact sheets, main sticker files, cover, chat icon, detail banner, manifest, and README after visual acceptance.
+12. Export accepted masters, transparent cutouts, contact sheets, platform variants, manifest, and README after visual acceptance. For WeChat-style targets, also build cover, chat icon, and detail banner.
 
-The default behavior should feel like a guided one-button pack builder: the user provides the subject, chooses style and theme numbers if they care, and Codex handles the reaction mix, prompt strategy, QA, and WeChat asset export sequence.
+The default behavior should feel like a guided one-button pack builder: the user provides the subject, chooses style and theme numbers if they care, and the AI agent handles the reaction mix, prompt strategy, QA, and sticker export sequence.
+
+## Language Handling
+
+Match the user's language.
+
+- If the user writes in English, ask the style and theme menus in English and use English captions unless the user asks for another language.
+- If the user writes in Chinese, ask the Chinese menus and default to short Chinese sticker captions.
+- If the user asks for bilingual or platform-specific copy, follow that request while keeping sticker captions short and readable.
+- Keep the workflow agent-agnostic. Do not assume one host app. Claude-style agents, Antigravity-style agents, Codex, and other agents can follow the same `SKILL.md` workflow when they support local skills or reusable instruction folders.
 
 ## Default Assumptions
 
 When the user gives only a subject, proceed with these defaults unless the request implies otherwise:
 
 - Static sticker pack.
-- 16 stickers for a full WeChat-ready pack, or 9 stickers only for a compact review set.
+- 16 stickers for a full pack, or 9 stickers only for a compact review set.
 - 512x512 PNG masters.
 - Transparent final cutouts after the artwork is accepted.
-- A contact sheet for review before WeChat/platform packaging.
+- A contact sheet for review before platform packaging.
 - Style preset: ask the 6-option menu when absent; use preset 1 if the user says "默认", "随便", "大众", or does not care. See `references/style-presets.md`.
 - Theme preset: ask the 7-option menu when absent; use preset 1 if the user says "默认", "随便", "日常", or does not care. See `references/theme-presets.md`.
-- Chinese short captions only when they materially improve the meme beat; no caption when the action reads clearly.
+- Short captions only when they materially improve the meme beat; no caption when the action reads clearly. Match caption language to the user's request.
 
 If the target platform is stated, follow its current requirements. For unstable platform rules, verify current size, format, count, alpha, file-size, and upload constraints before claiming readiness.
 
@@ -56,7 +65,7 @@ If the target platform is stated, follow its current requirements. For unstable 
 9. Land accepted source files inside the active pack folder before post-production. Do not treat image-generation cache paths as source of truth.
 10. Split/crop/resize only after visual acceptance. Build 512 masters first, then platform variants.
 11. Make transparent cutouts with edge/background masking, not by globally deleting white pixels.
-12. Build WeChat-ready package assets: main sticker files, cover, chat page icon, detail banner, contact sheets, manifest, and README.
+12. Build platform package assets. For WeChat-style packs, include main sticker files, cover, chat page icon, detail banner, contact sheets, manifest, and README.
 13. Rebuild final contact sheets from the latest exported files and inspect them visually.
 14. Report only existing output paths and clearly label concept drafts, prompt-pack handoff, review-ready assets, publish-ready files, or submitted/accepted platform status.
 
@@ -74,7 +83,7 @@ If the target platform is stated, follow its current requirements. For unstable 
 - Do not claim native/reference-input generation unless the current AI Agent's image-generation route actually accepted image/reference inputs.
 - Do not claim a no-image-tool run produced finished sticker files. In those environments, produce a prompt pack, manifest plan, and post-production instructions until real image files exist.
 - Do not accept technically correct but ugly, stiff, low-energy, or AI-placeholder-looking stickers.
-- Do not call a pack WeChat-ready without main sticker files, cover, chat icon, detail banner, contact sheet, manifest, README, and visual QA.
+- Do not call a pack platform-ready until the required platform files, contact sheet, manifest/README, and visual QA exist.
 - Do not claim reference-image compliance unless the generation route actually accepted and used image inputs.
 - Do not silently overwrite accepted outputs. Create comparison variants when changing cutout, scale, background, or platform exports.
 

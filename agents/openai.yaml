@@ -1,4 +1,4 @@
 interface:
   display_name: "Zinxtick"
-  short_description: "Build WeChat-ready themed sticker packs"
-  default_prompt: "Use $zinxtick to turn this character or object into a WeChat-ready themed sticker pack."
+  short_description: "Build themed sticker packs"
+  default_prompt: "Use $zinxtick to turn this character or object into a themed sticker pack."

@@ -4,7 +4,15 @@ Use this file to keep style selection simple. Do not ask ordinary users to inven
 
 ## Style Selection Menu
 
-Ask this exact short question when the user has not specified style:
+Ask a short menu question when the user has not specified style. Match the user's language.
+
+English:
+
+```text
+Choose a style: 1 Mainstream cartoon  2 Comic  3 Classic sticker  4 Bold graphic design  5 Retro early-chat emoticon  6 Custom. Default recommendation: 1.
+```
+
+Chinese:
 
 ```text
 选一个风格：1 大众通用美术  2 漫画风格  3 经典贴纸风格  4 强烈平面设计风格  5 古早QQ聊天风格  6 自定义。默认推荐 1。
@@ -12,7 +20,7 @@ Ask this exact short question when the user has not specified style:
 
 Rules:
 
-- If the user says `默认`, `随便`, `大众`, `通用`, or does not care, use preset 1.
+- If the user says `default`, `anything`, `mainstream`, `cute`, `general`, `默认`, `随便`, `大众`, `通用`, or does not care, use preset 1.
 - If the user picks 6, ask for one short style description or reference image.
 - If the custom description is vague, combine it with preset 1's quality bar.
 - Do not mix multiple presets unless the user explicitly asks.
@@ -56,6 +64,7 @@ Use for the broadest audience and as the default recommendation.
 ```
 
 Use when the user wants "好看", "大众", "可爱", "通用", "微信表情", or gives no preference.
+Use when English users ask for "cute", "clean", "mainstream", "general", "chat stickers", "safe", or give no preference.
 
 ## Preset 2: 漫画风格
 
@@ -109,6 +118,14 @@ Use only when the user wants to describe a style or provides a reference image.
 
 Ask for a short style brief:
 
+English:
+
+```text
+Describe the style in one sentence, or provide a reference image. Examples: vintage comic, journal stickers, black-and-white line art, pixel game style, low-saturation cozy style.
+```
+
+Chinese:
+
 ```text
 请用一句话描述风格，或者给一张参考图。比如：复古漫画、像手帐贴纸、黑白线稿、像像素游戏、低饱和治愈系。
 ```
@@ -123,9 +140,9 @@ Even for custom styles, keep the universal sticker quality bar:
 
 ## Caption Style
 
-Default Chinese caption treatment:
+Default caption treatment:
 
-- Short phrases, usually 2-5 Chinese characters.
+- Short phrases: often 1-3 English words or 2-5 Chinese characters.
 - Rounded bold lettering, readable at 240px and still legible at thumbnail size.
 - White outer stroke or sticker backing when needed.
 - Place text near the action, not as a detached title below every sticker.
